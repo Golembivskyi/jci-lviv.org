@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<phpunit backupGlobals="false"
+         backupStaticAttributes="false"
+         bootstrap="tests/autoload.php"
+         colors="true"
+         convertErrorsToExceptions="true"
+         convertNoticesToExceptions="true"
+         convertWarningsToExceptions="true"
+         processIsolation="false"
+         stopOnFailure="false">
+    <testsuites>
+        <testsuite name="Elements">
+            <directory suffix="Test.php">./tests/Builder</directory>
+        </testsuite>
+        <testsuite name="Layouts">
+            <file>./tests/LayoutTest.php</file>
+        </testsuite>
+    </testsuites>
+    <filter>
+        <whitelist>
+            <directory suffix=".php">./src</directory>
+            <directory suffix=".php">./modules</directory>
+            <directory suffix=".php">./platforms</directory>
+            <directory suffix=".php">./tests/ReferenceElements</directory>
+            <exclude>
+                <directory suffix=".php">./tests/ReferenceElements/newsletter/src</directory>
+                <directory suffix=".php">./tests/ReferenceElements/joomla-position</directory>
+                <directory suffix=".php">./tests/ReferenceElements/joomla-module</directory>
+                <directory suffix=".php">./tests/ReferenceElements/wordpress-widget</directory>
+                <directory suffix=".php">./tests/ReferenceElements/wordpress-area</directory>
+            </exclude>
+        </whitelist>
+    </filter>
+    <php>
+        <env name="FIELD_CONFIGS" value="../../../node_modules/yootheme/packages/builder/src/elements"/>
+        <env name="ELEMENT_PATH" value="builder"/>
+        <env name="REFERENCE_PATH" value="tests/ReferenceElements"/>
+        <env name="LAYOUT_PATH" value="tests/Layouts"/>
+        <env name="COMPONENTS_BUILDER" value="../../../node_modules/yootheme"/>
+        <ini name="memory_limit" value="-1"/>
+        <ini name="max_execution_time" value="-1"/>
+        <ini name="display_errors" value="On" />
+        <ini name="display_startup_errors" value="On" />
+        <ini name="error_reporting" value="E_ALL" />
+    </php>
+</phpunit>
